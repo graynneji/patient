@@ -1,14 +1,16 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable react/jsx-no-undef */
 /* eslint-disable no-unused-vars */
+
 import styled from "styled-components";
 import Chart from "./Chart";
-import { useHistory } from "../hooks/history";
 import { usePatient } from "../features/usePatient";
+import { GoDotFill } from "react-icons/go";
 
 const History = styled.div`
   padding: 1.6rem;
   width: 766px;
+  min-height: 673px;
   display: flex;
   /* gap: 39.05px; */
   grid-row: 2;
@@ -38,8 +40,13 @@ const Right = styled.div`
   flex: 1;
 `;
 
-const Hbp = styled.span`
+const Hbp = styled.p`
   font-weight: bold;
+`;
+const StoDia = styled.span`
+  display: flex;
+  gap: 0.4rem;
+  align-items: center;
 `;
 const HbpValues = styled.span`
   font-size: 2.2rem;
@@ -48,6 +55,7 @@ const HbpValues = styled.span`
 const Header = styled.p`
   font-size: 2.4rem;
   margin-bottom: 4rem;
+  font-weight: bolder;
 `;
 
 const MainHis = styled.div`
@@ -86,6 +94,11 @@ const Image = styled.img`
   width: 9.6rem;
   height: 9.6rem;
 `;
+const Horizontal = styled.hr`
+  border-color: #70707051 !important;
+  border-width: 1px !important;
+  border-style: solid !important;
+`;
 function Middle() {
   const { isLoading, patient, error } = usePatient();
   if (isLoading) return null;
@@ -113,7 +126,7 @@ function Middle() {
 
   return (
     <History>
-      <Header> Diagnossis History</Header>
+      <Header> Diagnosis History</Header>
       {/* {isLoading ? (
         "Loading..."
       ) : ( */}
@@ -125,13 +138,34 @@ function Middle() {
           </Left>
           <Right>
             <Top>
-              <Hbp>Systolic</Hbp>
+              <StoDia>
+                <GoDotFill
+                  style={{
+                    width: "14px",
+                    height: "14px",
+                    color: "#E66FD2",
+                  }}
+                />
+
+                <Hbp>Systolic</Hbp>
+              </StoDia>
               <HbpValues>{data[5]?.systolic}</HbpValues>
               <span>Higher than Average</span>
             </Top>
-            <hr />
+            {/* <hr style={{ backgroundColor: "#999" }} /> */}
+            <Horizontal />
             <Top>
-              <Hbp>Diastolic</Hbp>
+              <StoDia>
+                <GoDotFill
+                  style={{
+                    width: "14px",
+                    height: "14px",
+                    color: "#7E6CAB",
+                  }}
+                />
+
+                <Hbp>Diastolic</Hbp>
+              </StoDia>
               <HbpValues>{data[5]?.diastolic}</HbpValues>
               <span>Lower than Average</span>
             </Top>

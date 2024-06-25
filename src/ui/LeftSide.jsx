@@ -10,7 +10,8 @@ const RightCon = styled.div`
   flex-direction: column;
   border-radius: 1.6rem;
   background-color: white;
-  height: 1054px;
+  /* height: 1067px; */
+  height: 1109px;
 `;
 
 const Top = styled.div`
@@ -18,6 +19,10 @@ const Top = styled.div`
   justify-content: space-between;
   margin-bottom: 4rem;
   padding: 1.6rem;
+  img {
+    width: 17.99px;
+    height: 18px;
+  }
 `;
 
 const TopLeft = styled.div`
@@ -47,10 +52,13 @@ const PatLeft = styled.div`
 const Details = styled.div`
   display: flex;
   flex-direction: column;
+  font-size: 1.4rem;
   gap: 0.4rem;
   h3 {
-    font-size: 1.4rem;
     font-weight: bold;
+  }
+  h4 {
+    color: #707070;
   }
 `;
 const ConPat = styled.div`

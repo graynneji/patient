@@ -26,6 +26,19 @@ body {
   line-height: 1.5;
   font-size: 1.4rem;
   overflow: auto;
+  
+  scrollbar-color: #fff #f0f0f0; 
+  scrollbar-width: thin; 
+  &::-webkit-scrollbar {
+    width: 10px; 
+    height: 10px; 
+    border-radius: 10px; 
+    background-color: #f0f0f0; 
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: #fff; 
+    border-radius: 10px; 
+  }
 }
 
 a {

@@ -25,7 +25,7 @@ const LabCon = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  overflow-y: scroll;
+  /* overflow-y: scroll; */
 `;
 
 const Image = styled.img`

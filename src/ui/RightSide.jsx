@@ -20,6 +20,10 @@ const ProfilePicName = styled.div`
   justify-content: center;
   align-items: center;
   margin-bottom: 3.2rem;
+  h2 {
+    font-size: 2.4rem;
+    font-weight: bolder;
+  }
 `;
 
 const Contact = styled.div`
@@ -35,6 +39,10 @@ const Image = styled.img`
 const Info = styled.div`
   display: flex;
   gap: 1.6rem;
+  p {
+    font-size: 1.4rem;
+    font-weight: bold;
+  }
 `;
 const Button = styled.button`
   border-radius: 41px;
@@ -52,7 +60,7 @@ function RightSide({ isLoading, patient }) {
         <>
           <ProfilePicName>
             <Image src={patient[3]?.profile_picture} alt="" />
-            <span>{patient[3]?.name}</span>
+            <h2>{patient[3]?.name}</h2>
           </ProfilePicName>
           <Contact>
             <Info>
@@ -60,7 +68,7 @@ function RightSide({ isLoading, patient }) {
                 <img src="/contact-icons/BirthIcon.svg" alt="birth" />
               </>
               <div>
-                <p>Date of Birth</p>
+                <span>Date of Birth</span>
 
                 <p>
                   {moment(patient[3]?.date_of_birth, "MM-DD-YYYY").format(
@@ -74,7 +82,7 @@ function RightSide({ isLoading, patient }) {
                 <img src="/contact-icons/FemaleIcon.svg" alt="birth" />
               </>
               <div>
-                <p>Gender</p>
+                <span>Gender</span>
 
                 <p>{patient[3]?.gender}</p>
               </div>
@@ -84,7 +92,7 @@ function RightSide({ isLoading, patient }) {
                 <img src="/contact-icons/PhoneIcon.svg" alt="birth" />
               </>
               <div>
-                <p>Contact Info.</p>
+                <span>Contact Info.</span>
 
                 <p>{patient[3]?.phone_number}</p>
               </div>
@@ -94,7 +102,7 @@ function RightSide({ isLoading, patient }) {
                 <img src="/contact-icons/PhoneIcon.svg" alt="birth" />
               </>
               <div>
-                <p>Emergency Contacts</p>
+                <span>Emergency Contacts</span>
 
                 <p>{patient[3]?.emergency_contact}</p>
               </div>
@@ -104,7 +112,7 @@ function RightSide({ isLoading, patient }) {
                 <img src="/contact-icons/InsuranceIcon.svg" alt="birth" />
               </>
               <div>
-                <p>Insurance Provider</p>
+                <span>Insurance Provider</span>
 
                 <p>{patient[3]?.insurance_type}</p>
               </div>
