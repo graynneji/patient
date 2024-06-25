@@ -41,7 +41,6 @@ const Tbody = styled.tbody`
   height: 2rem;
   overflow-y: scroll;
   td {
-    overflow-y: scroll;
     font-size: 1.4rem;
   }
 `;
