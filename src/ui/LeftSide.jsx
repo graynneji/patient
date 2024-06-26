@@ -1,6 +1,7 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable no-unused-vars */
 import styled from "styled-components";
+import { usePatient } from "../features/usePatient";
 
 const RightCon = styled.div`
   width: 36.7rem;
@@ -69,7 +70,9 @@ const Image = styled.img`
   width: 1.8rem;
   height: 4rem;
 `;
-function LeftSide({ patient, isLoading }) {
+function LeftSide() {
+  const { isLoading, patient, error } = usePatient();
+  if (isLoading) return null;
   return (
     <RightCon>
       <Top>

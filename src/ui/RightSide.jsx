@@ -2,12 +2,11 @@
 /* eslint-disable no-unused-vars */
 import styled from "styled-components";
 import moment from "moment";
-import { PiX } from "react-icons/pi";
+import { usePatient } from "../features/usePatient";
 
 const RightSideCon = styled.div`
   width: 367px;
   height: 740px;
-  grid-row: 2;
   background-color: white;
   padding: 32px 20px;
   border-radius: 1.6rem;
@@ -51,7 +50,9 @@ const Button = styled.button`
   align-self: center;
   background-color: #01f0d0;
 `;
-function RightSide({ isLoading, patient }) {
+function RightSide() {
+  const { isLoading, patient, error } = usePatient();
+  if (isLoading) return null;
   return (
     <RightSideCon>
       {isLoading ? (

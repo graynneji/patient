@@ -6,13 +6,14 @@ import styled from "styled-components";
 import Chart from "./Chart";
 import { usePatient } from "../features/usePatient";
 import { GoDotFill } from "react-icons/go";
-
+import { IoIosArrowDown } from "react-icons/io";
+import { IoMdArrowDropup } from "react-icons/io";
+import { IoMdArrowDropdown } from "react-icons/io";
 const History = styled.div`
   padding: 1.6rem;
   width: 766px;
   min-height: 673px;
   display: flex;
-  /* gap: 39.05px; */
   grid-row: 2;
   background-color: white;
   border-radius: 1.6rem;
@@ -23,7 +24,6 @@ const Left = styled.div`
   display: flex;
   flex-direction: column;
   gap: 20px;
-  /* background-color: green; */
 `;
 
 const Top = styled.div`
@@ -36,12 +36,12 @@ const Right = styled.div`
   display: flex;
   gap: 1.6rem;
   flex-direction: column;
-  /* background-color: red; */
   flex: 1;
 `;
 
 const Hbp = styled.p`
   font-weight: bold;
+  font-size: 1.8rem;
 `;
 const StoDia = styled.span`
   display: flex;
@@ -99,6 +99,24 @@ const Horizontal = styled.hr`
   border-width: 1px !important;
   border-style: solid !important;
 `;
+
+const Duration = styled.div`
+  display: flex;
+  justify-content: space-between;
+`;
+const Time = styled.div``;
+const TimeCon = styled.div`
+  display: flex;
+  gap: 1.6rem;
+  justify-content: center;
+  align-items: center;
+`;
+
+const ArrowsIconCon = styled.div`
+  display: flex;
+  gap: 0.8rem;
+  align-items: center;
+`;
 function Middle() {
   const { isLoading, patient, error } = usePatient();
   if (isLoading) return null;
@@ -110,7 +128,6 @@ function Middle() {
       temp: temperature,
     })
   );
-  console.log(dataOne);
   const data = patient[3]?.diagnosis_history
     ?.filter((_, idx) => idx < 6)
     ?.reverse()
@@ -119,21 +136,21 @@ function Middle() {
       systolic: blood_pressure.systolic.value,
       diastolic: blood_pressure.diastolic.value,
     }));
-  // function Middle({ isLoading, patient }) {
-  // const { data, error } = useHistory("chart");
-  // const dataOne = useHistory("middle");
-  // console.log(dataOne);
 
   return (
     <History>
       <Header> Diagnosis History</Header>
-      {/* {isLoading ? (
-        "Loading..."
-      ) : ( */}
+
       <>
         <MainHis>
           <Left>
-            <Hbp>Blood Pressure</Hbp>
+            <Duration>
+              <Hbp>Blood Pressure</Hbp>
+              <TimeCon>
+                <Time>Last 6 months</Time>
+                <IoIosArrowDown />
+              </TimeCon>
+            </Duration>
             <Chart data={data} />
           </Left>
           <Right>
@@ -150,9 +167,11 @@ function Middle() {
                 <Hbp>Systolic</Hbp>
               </StoDia>
               <HbpValues>{data[5]?.systolic}</HbpValues>
-              <span>Higher than Average</span>
+              <ArrowsIconCon>
+                <IoMdArrowDropup />
+                <span>Higher than Average</span>
+              </ArrowsIconCon>
             </Top>
-            {/* <hr style={{ backgroundColor: "#999" }} /> */}
             <Horizontal />
             <Top>
               <StoDia>
@@ -167,7 +186,10 @@ function Middle() {
                 <Hbp>Diastolic</Hbp>
               </StoDia>
               <HbpValues>{data[5]?.diastolic}</HbpValues>
-              <span>Lower than Average</span>
+              <ArrowsIconCon>
+                <IoMdArrowDropdown />
+                <span>Lower than Average</span>
+              </ArrowsIconCon>
             </Top>
           </Right>
         </MainHis>
@@ -185,7 +207,7 @@ function Middle() {
             <Image src="/temperature.svg" alt="hhhhh" />
             <div>
               <span>Respiratory Rate</span>
-              <p> {dataOne[0].temp.value}F</p>
+              <p> {dataOne[0].temp.value}&#176;F</p>
             </div>
             <Normal>{dataOne[0].temp.levels}</Normal>
           </Heart>
@@ -199,7 +221,6 @@ function Middle() {
           </Heart>
         </HeartRate>
       </>
-      {/* )} */}
     </History>
   );
 }

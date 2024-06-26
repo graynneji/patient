@@ -21,7 +21,15 @@ function Chart({ data }) {
         <Tooltip />
         <CartesianGrid vertical={false} />
         <XAxis dataKey="date" tick={{ fontSize: 12 }} />
-        <YAxis width={15} tick={{ fontSize: 12 }} />
+        <YAxis
+          width={15}
+          tick={{
+            fontSize: 12,
+          }}
+          type="number"
+          tickCount={7}
+          domain={[60, 180]}
+        />
         <Line
           type="monotone"
           dataKey="systolic"

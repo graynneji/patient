@@ -1,11 +1,11 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable no-unused-vars */
 import styled from "styled-components";
+import { usePatient } from "../features/usePatient";
 
 const DownRightCon = styled.div`
   width: 367px;
-  grid-row: 3;
-  grid-column: 3;
+  min-height: 355px;
   background-color: white;
   border-radius: 1.6rem;
   padding: 20px;
@@ -25,14 +25,15 @@ const LabCon = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  /* overflow-y: scroll; */
 `;
 
 const Image = styled.img`
   width: 20px;
   height: 20px;
 `;
-function DownRight({ patient, isLoading }) {
+function DownRight() {
+  const { isLoading, patient, error } = usePatient();
+  if (isLoading) return null;
   return (
     <DownRightCon>
       <Top>Lab Results</Top>

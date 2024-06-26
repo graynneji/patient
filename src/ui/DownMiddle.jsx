@@ -3,7 +3,6 @@ import styled from "styled-components";
 import { usePatient } from "../features/usePatient";
 const ContDownMid = styled.div`
   width: 766px;
-  /* height: 349px; */
   border-radius: 1.6rem;
   padding: 20px 20px 8px 20px;
   background-color: white;
@@ -18,7 +17,6 @@ const ContDownMid = styled.div`
 const Table = styled.table`
   border-collapse: collapse;
   text-align: left;
-  /* border: 1px solid black; */
   vertical-align: middle;
   table-layout: fixed;
 
@@ -30,15 +28,12 @@ const Table = styled.table`
 `;
 
 const Thead = styled.thead`
-  /* width: 100%; */
   background-color: #f6f7f8;
   position: sticky;
   z-index: 2;
   top: 0;
   th {
-    /* border-radius: 2.4rem 2.4rem 0 0; */
     width: 100%;
-    /* padding: 1.6rem; */
   }
 `;
 
@@ -51,10 +46,6 @@ const ThLeft = styled.th`
   border-bottom-left-radius: 2.4rem;
 `;
 const Tbody = styled.tbody`
-  /* height: 1rem; */
-  /* height: 205px;
-  overflow-y: scroll; */
-
   td {
     font-size: 1.4rem;
   }

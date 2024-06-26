@@ -8,15 +8,6 @@ import RightSide from "../ui/RightSide";
 import DownMiddle from "../ui/DownMiddle";
 import DownRight from "../ui/DownRight";
 
-// const Container = styled.div`
-//   display: grid;
-//   width: 100vw;
-//   max-width: 1600px;
-//   /* height: 100dvh; */
-//   background-color: green;
-//   /* padding: 0 32px 0 32px; */
-// `;
-
 const StyledDashboard = styled.div`
   display: grid;
   grid-template-columns: repeat(3, auto);
@@ -25,34 +16,32 @@ const StyledDashboard = styled.div`
   background-color: #f6f7f8;
 
   margin: 0 auto;
-  /* row-gap: 3.2rem; */
+
   gap: 3.2rem;
+`;
+
+const Right = styled.div`
+  grid-row: 2/-1;
+  display: flex;
+  flex-direction: column;
+  gap: 3.2rem;
+  margin-top: -1.8rem;
 `;
 
 function Dashboard() {
   const { isLoading, patient, error } = usePatient();
 
-  console.log(patient, isLoading);
-
   return (
-    // <Container>
     <StyledDashboard>
       <Nav />
-
-      <LeftSide isLoading={isLoading} patient={patient} />
-
-      <Middle isLoading={isLoading} patient={patient}>
-        fdfd
-      </Middle>
-      <RightSide isLoading={isLoading} patient={patient} />
-
+      <LeftSide />
+      <Middle />
       <DownMiddle />
-
-      <DownRight isLoading={isLoading} patient={patient}>
-        fdfd
-      </DownRight>
+      <Right>
+        <RightSide />
+        <DownRight />
+      </Right>
     </StyledDashboard>
-    // </Container>
   );
 }
 

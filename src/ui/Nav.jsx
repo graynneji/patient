@@ -15,8 +15,6 @@ const StyledNav = styled.nav`
 const NavLinks = styled.ul`
   display: flex;
   font-weight: bold;
-  /* justify-content: center; */
-  /* align-items: center; */
   gap: 4rem;
   li {
     display: flex;
