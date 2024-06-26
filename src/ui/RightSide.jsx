@@ -6,7 +6,7 @@ import { PiX } from "react-icons/pi";
 
 const RightSideCon = styled.div`
   width: 367px;
-  /* width: 100%; */
+  height: 740px;
   grid-row: 2;
   background-color: white;
   padding: 32px 20px;

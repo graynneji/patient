@@ -4,14 +4,13 @@ import styled from "styled-components";
 
 const RightCon = styled.div`
   width: 36.7rem;
-  /* width: 100%; */
   grid-row: 2/-1;
   display: flex;
   flex-direction: column;
   border-radius: 1.6rem;
   background-color: white;
-  /* height: 1067px; */
   height: 1109px;
+  position: relative;
 `;
 
 const Top = styled.div`
@@ -31,16 +30,11 @@ const TopLeft = styled.div`
 `;
 
 const PatientList = styled.div`
-  /* overflow: scroll; */
-  padding: 1.6rem;
   flex: 1;
   overflow-y: auto;
   margin-bottom: 2rem;
-  /* background-color: red; */
-  /* max-height: calc(100vh - 0.4rem); */
 `;
 const Patient = styled.div`
-  /* min-height: 100vh; */
   display: flex;
   flex-direction: column;
   gap: 3.2rem;
@@ -62,9 +56,15 @@ const Details = styled.div`
   }
 `;
 const ConPat = styled.div`
+  padding: 0 1.6rem;
+
   display: flex;
   justify-content: space-between;
+  background-color: ${({ name }) =>
+    name === "Jessica Taylor" ? "#D8FCF7" : ""};
+  padding: ${({ name }) => (name === "Jessica Taylor" ? "16px" : "")};
 `;
+
 const Image = styled.img`
   width: 1.8rem;
   height: 4rem;
@@ -83,7 +83,7 @@ function LeftSide({ patient, isLoading }) {
             ? "Loading..."
             : patient?.map((pat) => (
                 <>
-                  <ConPat key={pat.name}>
+                  <ConPat key={pat.name} name={pat.name}>
                     <PatLeft>
                       <img
                         width="48px"

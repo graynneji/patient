@@ -42,6 +42,11 @@ const Settings = styled.div`
   display: flex;
   gap: 1.2rem;
 `;
+const Highligth = styled.li`
+  padding: 1.1rem 1.6rem;
+  background-color: #01f0d0;
+  border-radius: 41px;
+`;
 
 function Nav() {
   return (
@@ -58,13 +63,13 @@ function Nav() {
           />
           Overview
         </li>
-        <li>
+        <Highligth>
           <img
             src="/dashboard-icons/group_FILL0_wght300_GRAD0_opsz24.svg"
             alt="Nav link icons"
           />
           Patients
-        </li>
+        </Highligth>
         <li>
           <img
             src="/dashboard-icons/calendar_today_FILL0_wght300_GRAD0_opsz24.svg"
