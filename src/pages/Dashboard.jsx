@@ -1,12 +1,14 @@
 /* eslint-disable no-unused-vars */
+import React, { Suspense } from "react";
 import styled from "styled-components";
 import { usePatient } from "../features/usePatient";
-import Nav from "../ui/Nav";
-import LeftSide from "../ui/LeftSide";
-import Middle from "../ui/Middle";
-import RightSide from "../ui/RightSide";
-import DownMiddle from "../ui/DownMiddle";
-import DownRight from "../ui/DownRight";
+import Loader from "../ui/Loader";
+const Nav = React.lazy(() => import("../ui/Nav"));
+const LeftSide = React.lazy(() => import("../ui/LeftSide"));
+const Middle = React.lazy(() => import("../ui/Middle"));
+const RightSide = React.lazy(() => import("../ui/RightSide"));
+const DownMiddle = React.lazy(() => import("../ui/DownMiddle"));
+const DownRight = React.lazy(() => import("../ui/DownRight"));
 
 const StyledDashboard = styled.div`
   display: grid;
@@ -30,18 +32,20 @@ const Right = styled.div`
 
 function Dashboard() {
   const { isLoading, patient, error } = usePatient();
-
+  if (isLoading) return null;
   return (
-    <StyledDashboard>
-      <Nav />
-      <LeftSide />
-      <Middle />
-      <DownMiddle />
-      <Right>
-        <RightSide />
-        <DownRight />
-      </Right>
-    </StyledDashboard>
+    <Suspense fallback={<Loader />}>
+      <StyledDashboard>
+        <Nav />
+        <LeftSide />
+        <Middle />
+        <DownMiddle />
+        <Right>
+          <RightSide />
+          <DownRight />
+        </Right>
+      </StyledDashboard>
+    </Suspense>
   );
 }
 
